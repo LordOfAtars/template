@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.App {
+    text-align: center;
+}
+
+.App-header {
+    background-color: #282c34;
+    padding: 20px;
+    color: white;
+}
+
+.App-footer {
+    background-color: #282c34;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.music-section {
+    padding: 20px;
+}
+
+.music-section-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.music-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.music-featured-item {
+    width: 150px; /* Ширина элемента */
+    margin: 10px; /* Отступ между элементами */
+    text-align: center;
+}
+
+/* Стиль для артистов (круглые изображения) */
+.music-featured-item-avatar.artist {
+    width: 100px; /* Ширина аватарки */
+    height: 100px; /* Высота аватарки */
+    border-radius: 50%; /* Круглая форма */
+    overflow: hidden;
+    margin: 0 auto 10px;
+}
+
+.music-featured-item-avatar.artist img {
+    width: 100%;
+    height: 100%; /* Устанавливаем высоту на 100% для круглого изображения */
+    object-fit: cover; /* Обеспечиваем правильное отображение изображения */
+}
+
+/* Стиль для треков (квадратные изображения) */
+.music-featured-item-avatar.track {
+    width: 80px;
+    height: 80px;
+    border-radius: 0; /* Убираем скругление для квадратной формы */
+    overflow: hidden;
+    margin: 0 auto 10px;
+}
+
+.music-featured-item-avatar.track img {
+    width: 100%;
+    height: 100%; /* Устанавливаем высоту на 100% для квадратного изображения */
+    object-fit: cover; /* Обеспечиваем правильное отображение изображения */
+}
+
+.music-featured-item-heading {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.music-featured-item-info {
+    margin-left: 10px;
+}
+
+/* Для списка треков */
+.music-tags.tracks {
+    display: grid; /* Используем сетку для отображения треков */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px; /* Уменьшено расстояние между элементами */
+    justify-items: center; /* Центрирование элементов в ячейках */
+}
+
+.music-featured-item.track {
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Центрирование содержимого внутри элемента */
+}
+
+.music-featured-item-info {
+    margin-left: 10px;
+}
