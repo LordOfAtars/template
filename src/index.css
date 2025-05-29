@@ -34,6 +34,7 @@ body {
 
 .music-section {
     padding: 20px;
+    overflow: hidden;
 }
 
 .music-section-heading {
@@ -42,9 +43,11 @@ body {
 }
 
 .music-tags {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    justify-items: center;
+    overflow: hidden;
 }
 
 .music-featured-item {

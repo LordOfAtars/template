@@ -1,44 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Search.css';
-
-const API_KEY = '141130a593cfedaf8911821bbb24d893';
-
-interface Image {
-    '#text': string;
-    size: string;
-}
-
-interface Artist {
-    name: string;
-    playcount: string;
-    listeners: string;
-    mbid: string;
-    url: string;
-    streamable: string;
-    image: Image[];
-}
-
-interface Track {
-    image: Image[];
-    name: string;
-    listeners: string;
-    mbid: string;
-    url: string;
-    artist: string;
-}
-
-interface Album {
-    image: Image[];
-    name: string;
-    mbid: string;
-    url: string;
-    artist: string;
-}
+import { API_KEY, VIEW_TAB } from './const';
+import { Artist, Album, Track } from './types_search';
 
 const Search: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('');
-    const [activeTab, setActiveTab] = useState('Top Results');
+    const [activeTab, setActiveTab] = useState<VIEW_TAB>(VIEW_TAB.RESULT);
     const [results, setResults] = useState<{
         artists: Artist[];
         albums: Album[];
@@ -50,7 +18,7 @@ const Search: React.FC = () => {
     });
     const [error, setError] = useState<string | null>(null);
 
-    const handleTabClick = (tab: string) => {
+    const handleTabClick = (tab: VIEW_TAB) => {
         setActiveTab(tab);
     };
 
@@ -139,10 +107,10 @@ const Search: React.FC = () => {
     return (
         <div className="search-page">
             <nav className="search-nav">
-                <button onClick={() => handleTabClick('Top Results')}>Top Results</button>
-                <button onClick={() => handleTabClick('Artists')}>Artists</button>
-                <button onClick={() => handleTabClick('Albums')}>Albums</button>
-                <button onClick={() => handleTabClick('Tracks')}>Tracks</button>
+                <button onClick={() => handleTabClick(VIEW_TAB.RESULT)}>Top Results</button>
+                <button onClick={() => handleTabClick(VIEW_TAB.ARTIST)}>Artists</button>
+                <button onClick={() => handleTabClick(VIEW_TAB.ALBUMS)}>Albums</button>
+                <button onClick={() => handleTabClick(VIEW_TAB.TRACKS)}>Tracks</button>
             </nav>
             <input
                 type="text"
@@ -154,16 +122,16 @@ const Search: React.FC = () => {
             />
             {error && <p className="error-message">{error}</p>}
             <div className="results-container">
-                {activeTab === 'Top Results' && (
+                {activeTab === VIEW_TAB.RESULT && (
                     <>
                         {renderResults('artists', 'Artists')}
                         {renderResults('albums', 'Albums')}
                         {renderResults('tracks', 'Tracks')}
                     </>
                 )}
-                {activeTab === 'Artists' && renderResults('artists', 'Artists')}
-                {activeTab === 'Albums' && renderResults('albums', 'Albums')}
-                {activeTab === 'Tracks' && renderResults('tracks', 'Tracks')}
+                {activeTab === VIEW_TAB.ARTIST && renderResults('artists', 'Artists')}
+                {activeTab === VIEW_TAB.ALBUMS && renderResults('albums', 'Albums')}
+                {activeTab === VIEW_TAB.TRACKS && renderResults('tracks', 'Tracks')}
             </div>
             <Link to="/" className="search-back-button">Back</Link>
         </div>

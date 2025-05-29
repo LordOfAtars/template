@@ -1,42 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { Image, Artist, Track } from './types_app';
+import { API_KEY } from './const';
 import Search from './Search';
 import './index.css';
-
-interface Image {
-    '#text': string;
-    size: string;
-}
-
-interface Artist {
-    name: string;
-    playcount: string;
-    listeners: string;
-    mbid: string;
-    url: string;
-    streamable: string;
-    image: Image[];
-}
-
-interface Track {
-    image: Image[];
-    name: string;
-    playcount: string;
-    listeners: string;
-    mbid: string;
-    url: string;
-    streamable: string;
-    artist: {
-        name: string;
-        mbid: string;
-        url: string;
-    };
-}
 
 const App: React.FC = () => {
     const [artists, setArtists] = useState<Artist[]>([]);
     const [tracks, setTracks] = useState<Track[]>([]);
-    const API_KEY = '141130a593cfedaf8911821bbb24d893';
 
     useEffect(() => {
         const fetchData = async (method: string, setter: React.Dispatch<React.SetStateAction<any[]>>) => {
