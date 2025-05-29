@@ -1,0 +1,156 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.App {
+    text-align: center;
+}
+
+.App-header,
+.App-footer {
+    background-color: #282c34;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.header-title {
+    color: red;
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.search-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+}
+
+.music-section {
+    padding: 20px;
+    overflow: hidden;
+}
+
+.music-section-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.music-tags {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    justify-items: center;
+    overflow: hidden;
+}
+
+.music-featured-item {
+    width: 150px;
+    margin: 10px;
+    text-align: center;
+}
+
+.music-featured-item-avatar {
+    overflow: hidden;
+    margin: 0 auto 10px;
+}
+
+.music-featured-item-avatar.artist {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.music-featured-item-avatar.track {
+    width: 80px;
+    height: 80px;
+    border-radius: 0;
+}
+
+.music-featured-item-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+
+.music-featured-item-avatar.artist img:hover,
+.music-featured-item-avatar.track img:hover {
+    transform: scale(1.1);
+}
+
+.music-featured-item-heading {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.music-featured-item-info {
+    margin-left: 10px;
+}
+
+.music-tags.tracks {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    justify-items: center;
+}
+
+.music-featured-item.track {
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.footer-column {
+    flex: 1;
+    text-align: left;
+    cursor: pointer;
+}
+
+.footer-column h4 {
+    margin: 0;
+    color: #778899;
+}
+
+.footer-column p {
+    margin: 5px 0;
+    transition: transform 0.2s;
+}
+
+.footer-column p:hover {
+    transform: scale(1.05);
+}
+
+.search-link {
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+}
+
+.search-back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background-color: #282c34;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.search-back-button:hover {
+    background-color: #444;
+}
